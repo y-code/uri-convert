@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+    <metadata>
+        <id>Y-code.UriConvert</id>
+        <title>Y-code.UriConvert</title>
+        <version>1.0.0-beta</version>
+        <authors>Yas Ikeda</authors>
+        <owners>y-code</owners>
+        <licenseUrl>https://opensource.org/licenses/MS-PL</licenseUrl>
+        <projectUrl>https://github.com/y-code/uri-convert</projectUrl>
+        <!--<iconUrl></iconUrl>-->
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <releaseNotes><![CDATA[
+* Initial implementation of UriConvert
+* Extension methods to use UriConvert
+* Attributes for flexibility in property naming
+* UriIgnoreAttribute to enable to have non-URI-related properties
+]]></releaseNotes>
+        <description>A serializer converts POCO to URI.</description>
+        <copyright>Copyright (c) 2018 Y-code</copyright>
+        <tags>uri url api rest convert conversion serialize serializer serialization</tags>
+        <dependencies>
+        </dependencies>
+    </metadata>
+
+    <files>
+        <file src="bin/Release/netstandard2.0/UriConvert.dll" target="lib/netstandard2.0" />
+        <file src="bin/Release/netstandard2.0/UriConvert.deps.json" target="lib/netstandard2.0" />
+        <file src="readme.txt" target="" />
+    </files>
+</package>
