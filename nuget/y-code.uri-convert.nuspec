@@ -16,7 +16,7 @@
 * Attributes for flexibility in property naming
 * UriIgnoreAttribute to enable to have non-URI-related properties
 ]]></releaseNotes>
-        <description>A serializer converts POCO to URI.</description>
+        <description>A serializer that converts POCO to URI.</description>
         <copyright>Copyright (c) 2018 Y-code</copyright>
         <tags>uri url api rest convert conversion serialize serializer serialization</tags>
         <dependencies>
