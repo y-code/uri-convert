@@ -19,7 +19,7 @@ http://example.com/test/path?Param0=test%3A0&Param1=test%3A1
 ```
 
 ## Advanced Example
-This utility also provides attributes that enable porperty names to be more flexible, and an attribute that enables to have properties not related to the URI generation.
+This utility also provides attributes that let you name porperties more flexibly.
 ```csharp
 class UriModel
 {
@@ -39,9 +39,7 @@ http://example.com/test/path?arg0=test%3A0&arg1=test%3A1
 ```
 
 ## Enhanced Example
-UriIgnore attribute enables you also have properties that are not related to URI. This let you have request contents together.
-
-In the case where the request content is JSON, the data class can be like
+UriIgnore attribute allow you to also have non-URI-related properties together. For example, this lets you have request contents together. In case the request content is JSON, the data class can be like
 ```csharp
 class UriModel
 {
@@ -59,7 +57,7 @@ class UriModel
     public string Param1 { get; set; } = "test1";
 }
 ```
-then URI and request content can be generated from a single object
+then URI and request content can be generated from a single object in the way that
 ```csharp
 var uriData = new UriModel();
 var uri = UriConvert.SerializeObject(uriData);
