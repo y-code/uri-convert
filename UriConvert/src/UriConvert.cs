@@ -163,11 +163,17 @@ namespace Ycode.UriConvert
 
             var grouped = parameterProperties.GroupBy(p => p.GetCustomAttribute<UriQueryParameterAttribute>()?.Name ?? p.Name);
 
+            var emptyNameGroup = grouped.FirstOrDefault(g => g.Key == "");
+            if (emptyNameGroup != null)
+                throw new InvalidOperationException($"Query parameter with empty name was found"
+                    + $" with property {string.Join(" and ", emptyNameGroup.Select(p => p.Name))} in type {value.GetType().FullName}.");
+
             var duplicates = grouped
                 .Where(g => g.Count() > 1)
                 .Select(g => $"Query parameter name \"{g.Key}\" is used by property {string.Join(" and ", g.Select(p => p.Name))}.");
             if (duplicates.Any())
-                throw new InvalidOperationException($"There are duplicates in query parameters in type {value.GetType().FullName}. {string.Join(" ", duplicates)}");
+                throw new InvalidOperationException($"There are duplicates in query parameters in type {value.GetType().FullName}."
+                    + $" {string.Join(" ", duplicates)}");
 
             queryParameters = grouped.ToDictionary(
                 g => g.Key,

@@ -11,6 +11,8 @@ namespace Ycode.UriConvert
             public string Param0 { get; set; } = "test0";
             [UriQueryParameter("parameter1")]
             public string Param1 { get; set; } = "test1";
+            [UriQueryParameter]
+            public string Param2 { get; set; } = "test2";
         }
 
         [TestCase]
@@ -19,8 +21,10 @@ namespace Ycode.UriConvert
             var uriData = new DummyUriModel();
             var parameters = UriConvert.ExtractQueryParameters(uriData);
 
+            Assert.That(parameters.ContainsKey("Param0"), Is.True);
             Assert.That(parameters.ContainsKey("Param1"), Is.False);
             Assert.That(parameters.ContainsKey("parameter1"), Is.True);
+            Assert.That(parameters.ContainsKey("Param2"), Is.True);
         }
 
         class DummyUriModel1
@@ -166,6 +170,40 @@ namespace Ycode.UriConvert
             Assert.That(e.Message, Is.EqualTo("There are duplicates in query parameters in type Ycode.UriConvert.UriQueryParameterAttributeTest+DummyUriModel6." +
                                               " Query parameter name \"Param1\" is used by property Param0 and Param1." +
                                               " Query parameter name \"Param3\" is used by property Param2 and Param3."));
+        }
+
+        class DummyUriModel7
+        {
+            public string Base { get; set; } = "http://example.com";
+            public string Path { get; set; } = "test/path";
+            [UriQueryParameter("")]
+            public string Param0 { get; set; } = "test0";
+            [UriQueryParameter("param1")]
+            public string Param1 { get; set; } = "test0";
+            [UriQueryParameter("")]
+            public string Param2 { get; set; } = "test0";
+        }
+
+        [TestCase]
+        public void TestQueryParameterRename7()
+        {
+            var uriData = new DummyUriModel7();
+
+            Exception e = null;
+            try
+            {
+                var uri = uriData.ToUriString();
+            }
+            catch (Exception exception)
+            {
+                e = exception;
+            }
+
+            Assert.That(e, Is.Not.Null);
+            Assert.That(e.GetType(), Is.EqualTo(typeof(InvalidOperationException)));
+            Assert.That(e.Message, Is.EqualTo("Query parameter with empty name was found"
+                 + " with property Param0 and Param2"
+                 + " in type Ycode.UriConvert.UriQueryParameterAttributeTest+DummyUriModel7."));
         }
     }
 }
