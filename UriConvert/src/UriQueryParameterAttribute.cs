@@ -11,5 +11,9 @@ namespace Ycode.UriConvert
         {
             Name = name;
         }
+
+        public UriQueryParameterAttribute() : this(null)
+        {
+        }
     }
 }
