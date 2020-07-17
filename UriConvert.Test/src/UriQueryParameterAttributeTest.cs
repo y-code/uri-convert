@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Ycode.UriConvert
+namespace Ycode.Uri.Test
 {
     [TestFixture(TestOf = typeof(UriQueryParameterAttribute))]
     public class UriQueryParameterAttributeTest
@@ -167,7 +167,7 @@ namespace Ycode.UriConvert
 
             Assert.That(e, Is.Not.Null);
             Assert.That(e.GetType(), Is.EqualTo(typeof(InvalidOperationException)));
-            Assert.That(e.Message, Is.EqualTo("There are duplicates in query parameters in type Ycode.UriConvert.UriQueryParameterAttributeTest+DummyUriModel6." +
+            Assert.That(e.Message, Is.EqualTo("There are duplicates in query parameters in type Ycode.Uri.UriQueryParameterAttributeTest+DummyUriModel6." +
                                               " Query parameter name \"Param1\" is used by property Param0 and Param1." +
                                               " Query parameter name \"Param3\" is used by property Param2 and Param3."));
         }
@@ -203,7 +203,7 @@ namespace Ycode.UriConvert
             Assert.That(e.GetType(), Is.EqualTo(typeof(InvalidOperationException)));
             Assert.That(e.Message, Is.EqualTo("Query parameter with empty name was found"
                  + " with property Param0 and Param2"
-                 + " in type Ycode.UriConvert.UriQueryParameterAttributeTest+DummyUriModel7."));
+                 + " in type Ycode.Uri.UriQueryParameterAttributeTest+DummyUriModel7."));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Ycode.UriConvert
+namespace Ycode.Uri.Test
 {
     [TestFixture(TestOf = typeof(UriIgnoreAttribute))]
     public class UriIgnoreAttributeTest

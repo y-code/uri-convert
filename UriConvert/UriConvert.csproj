@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <BaseDirectory>src</BaseDirectory>
-    <RootNamespace>Ycode.UriConvert</RootNamespace>
+    <RootNamespace>Ycode.Uri</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
