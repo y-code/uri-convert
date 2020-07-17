@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace Ycode.UriConvert
+namespace Ycode.Uri.Test
 {
     [TestFixture]
     class UriConvertTest

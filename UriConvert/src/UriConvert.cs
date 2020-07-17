@@ -1,11 +1,28 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 
 namespace Ycode.UriConvert
+{
+    [Obsolete(ObsoleteMessage)]
+    public static class UriConvert
+    {
+        internal const string ObsoleteMessage = "Namespace Ycode.UriConvert has been renamed Ycode.Uri. Please use the new namespace.";
+
+        public static string SerializeObject(object value)
+            => Ycode.Uri.UriConvert.SerializeObject(value);
+
+        public static System.Uri Convert(object value)
+            => Ycode.Uri.UriConvert.Convert(value);
+
+        public static IDictionary<string, string> ExtractQueryParameters(object value, bool isToEncode = false)
+            => Ycode.Uri.UriConvert.ExtractQueryParameters(value, isToEncode);
+    }
+}
+
+namespace Ycode.Uri
 {
     public static class UriConvert
     {
@@ -20,7 +37,7 @@ namespace Ycode.UriConvert
             return Convert(value).AbsoluteUri;
         }
 
-        public static Uri Convert(object value)
+        public static System.Uri Convert(object value)
         {
             if (value == null)
                 throw new ArgumentNullException(nameof(value));
@@ -35,13 +52,13 @@ namespace Ycode.UriConvert
             if (baseUri == null)
                 throw new UriFormatException($"The object's Base URI Property {baseUriProperty.Name} was null.");
             
-            Uri uri = new Uri(baseUri);
+            System.Uri uri = new System.Uri(baseUri);
             if (path != null)
-                uri = (uri == null ? new Uri(path) : new Uri(uri, path));
+                uri = (uri == null ? new System.Uri(path) : new System.Uri(uri, path));
             if (queryParameters != null && queryParameters.Any())
                 uri = (uri == null
-                       ? new Uri("?" + queryParameters.SerializeQueryParameters())
-                       : new Uri(uri, "?" + queryParameters.SerializeQueryParameters()));
+                       ? new System.Uri("?" + queryParameters.SerializeQueryParameters())
+                       : new System.Uri(uri, "?" + queryParameters.SerializeQueryParameters()));
             return uri;
         }
 
@@ -215,7 +232,7 @@ namespace Ycode.UriConvert
         }
 
         private static string Escape(this string value)
-            => Uri.EscapeDataString(value);
+            => System.Uri.EscapeDataString(value);
 
         private static string SerializeQueryParameters(this IDictionary<string, string> parameters)
             => string.Join("&", parameters.Select(p => $"{p.Key}={p.Value}"));

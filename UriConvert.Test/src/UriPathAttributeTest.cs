@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Ycode.UriConvert
+namespace Ycode.Uri.Test
 {
     [TestFixture]
     public class UriPathAttributeTest
