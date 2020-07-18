@@ -2,6 +2,28 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>1.0.0-rc3</RootNamespace>
+    <RootNamespace>Ycode.Uri</RootNamespace>
+        
+    <PackageId>Ycode.Uri</PackageId>
+    <PackageVersion>1.0.0-rc.3</PackageVersion>
+    <SynchReleaseVersion>true</SynchReleaseVersion>
+    <Authors>Yas Ikeda (ycode.laboratory@gmail.com)</Authors>
+    <PackageTags>uri,url,api,rest,convert,conversion,serialize,serializer,serialization</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/y-code/uri-convert</PackageProjectUrl>
+    <PackageProjectType>GitHub</PackageProjectType>
+    <PackageIcon>icon.png</PackageIcon>
+    <Title>URI Convert</Title>
+    <Description>A serializer that converts POCO to URI.</Description>
+    <PackageReleaseNotes><![CDATA[
+* Rename root namespace from Ycode.UriConvert to Ycode.Uri
+* Still support namespace Ycode.UriConvert but with obsolete annotation
+    ]]></PackageReleaseNotes>
+    <copyright>Copyright 2018 Y-code</copyright>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
   </PropertyGroup>
+    
+  <ItemGroup>
+    <None Update="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
 </Project>

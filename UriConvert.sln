@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5AD1370F-1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ycode.Uri.Test", "test\Ycode.Uri.Test\Ycode.Uri.Test.csproj", "{8F55FF08-FA37-470B-BD08-A118A85D7443}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nuget", "nuget", "{50F4D2F9-1BD7-47BE-A35A-F0662CD13BFE}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\y-code.uri-convert.nuspec = nuget\y-code.uri-convert.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
